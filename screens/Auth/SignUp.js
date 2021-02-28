@@ -4,6 +4,8 @@ import styled from "styled-components/native";
 import Btn from "../../components/Auth/Btn";
 import Input from "../../components/Auth/Input";
 import DismissKeyboard from "../../components/DismissKeyboard";
+import { isEmail } from "../../utils";
+import { createAccount } from "../../api";
 
 const Container = styled.View`
   flex: 1;
@@ -20,10 +22,38 @@ const TextInput = styled.TextInput``;
 export default () => {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  const handleSubmit = () => alert(`${username}, ${password}`);
+  const validateForm = () => {
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      email === "" ||
+      password === ""
+    ) {
+      alert("All fields are required.");
+      return;
+    }
+    if (!isEmail(email)) {
+      alert("Please add a valid email.");
+      return;
+    }
+  };
+  const handleSubmit = async () => {
+    validateForm();
+    try {
+      const data = await createAccount({
+        first_name: firstName,
+        last_name: lastName,
+        email,
+        username: email,
+        password,
+      });
+      console.log(data);
+    } catch (e) {
+      console.warn(e);
+    }
+  };
 
   return (
     <DismissKeyboard>
@@ -34,20 +64,21 @@ export default () => {
             <Input
               value={firstName}
               placeholder="First Name"
-              autoCapitalize="none"
+              autoCapitalize="words"
               stateFn={setFirstName}
             />
             <Input
               value={lastName}
               placeholder="Last Name"
-              autoCapitalize="none"
+              autoCapitalize="words"
               stateFn={setLastName}
             />
             <Input
-              value={username}
-              placeholder="Username"
+              keyboardType={"email-address"}
+              value={email}
+              placeholder="Email"
               autoCapitalize="none"
-              stateFn={setUsername}
+              stateFn={setEmail}
             />
             <Input
               value={password}
