@@ -17,9 +17,9 @@ const InputContainer = styled.View`
 
 const TextInput = styled.TextInput``;
 
-export default () => {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
+export default ({ route: { params } }) => {
+  const [username, setUsername] = useState(params?.email);
+  const [password, setPassword] = useState(params?.password);
 
   const handleSubmit = () => alert(`${username}, ${password}`);
   const dismissKeyboard = () => Keyboard.dismiss();
