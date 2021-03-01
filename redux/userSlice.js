@@ -32,7 +32,7 @@ export const userLogin = (form) => async (dispatch) => {
     }
     //dispatch login()
   } catch (e) {
-    alert("wrong user");
+    alert("Wrong user/password");
   }
 };
 

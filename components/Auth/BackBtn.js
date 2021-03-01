@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
-import { Platform } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-
-const isAndroid = Platform.OS === "android";
+import utils from "../../utils";
 
 const Container = styled.View`
   padding-left: 20px;
@@ -13,7 +11,7 @@ export default () => (
   <Container>
     <Ionicons
       name={
-        isAndroid
+        utils.isAndroid()
           ? "md-arrow-down-circle-outline"
           : "ios-arrow-down-circle-outline"
       }

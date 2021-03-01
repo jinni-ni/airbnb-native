@@ -28,6 +28,7 @@ export default function App() {
     //image , font
     const images = [
       require("./assets/loginBG.jpeg"),
+      require("./assets/roomDefault.jpeg"),
       "http://logok.org/wp-content/uploads/2014/07/airbnb-logo-belo-219x286.png",
     ];
 

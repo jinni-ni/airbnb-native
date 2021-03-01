@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { logIn, logOut } from "../redux/userSlice";
 import { NavigationContainer } from "@react-navigation/native";
 import Auth from "../navigation/Auth";
+import Main from "../navigation/Main";
 
 // const Gate = (props) => {
 export default () => {
@@ -13,16 +14,7 @@ export default () => {
   // console.log(isLoggedIn);
   return (
     <NavigationContainer>
-      {isLoggedIn ? (
-        <TouchableOpacity
-          onPress={() => dispatch(logOut())}
-          style={{ justifyContent: "center", alignItems: "center", flex: 1 }}
-        >
-          <Text>Logout</Text>
-        </TouchableOpacity>
-      ) : (
-        <Auth />
-      )}
+      {isLoggedIn ? <Main /> : <Auth />}
     </NavigationContainer>
   );
 };
