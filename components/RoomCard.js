@@ -66,7 +66,7 @@ const RoomCard = ({ id, isFav, isSuperHost, photos, name, price }) => (
       ) : (
         <Swiper
           paginationStyle={{ marginBottom: -15 }}
-          activeDotColor={"rgba(200, 200, 200, 0.8)"}
+          activeDotColor={"white"}
           dotColor={"grey"}
         >
           {photos.map((photo) => (
