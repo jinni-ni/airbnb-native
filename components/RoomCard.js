@@ -6,7 +6,8 @@ import { Ionicons } from "@expo/vector-icons";
 import Swiper from "react-native-swiper";
 import utils from "../utils";
 import { useDispatch } from "react-redux";
-import { toogleFav, toggleFav } from "../redux/userSlice";
+import { toggleFav } from "../redux/userSlice";
+import colors from "../colors";
 
 const { width, height } = Dimensions.get("screen");
 
@@ -84,6 +85,7 @@ const RoomCard = ({ id, isFav, isSuperHost, photos, name, price }) => {
         <FavButton>
           <Ionicons
             size={28}
+            color={isFav ? colors.red : "black"}
             name={utils.isAndroid() ? "md-hear-outline" : "ios-heart-outline"}
           />
         </FavButton>

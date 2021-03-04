@@ -2,7 +2,8 @@ import axios from "axios";
 
 const callApi = async (method, path, data, jwt) => {
   const headers = {
-    Authorization: jwt,
+    Authorization: jwt !== undefined ? `Bearer ${jwt}` : null,
+    //Authorization: `Bearer ${jwt}`,
     "Content-Type": "application/json",
   };
 
@@ -21,6 +22,6 @@ export default {
   login: (form) => callApi("post", "/users/login/", form),
   rooms: (page = 1) => callApi("get", `/rooms/?page=${page}`),
   favs: (id) => callApi("get", `/users/${id}/favs/`),
-  toogleFavs: (userId, roomId, toekn) =>
-    callApi("put", `/users/${userId}/favs/`, { pk: rommId }),
+  toggleFavs: (userId, roomId, token) =>
+    callApi("put", `/users/${userId}/favs/`, { pk: roomId }, token),
 };
