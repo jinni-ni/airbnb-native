@@ -18,7 +18,7 @@ const NoFavs = styled.Text``;
 
 export default ({ rooms }) => (
   <Container>
-    <Title>Favourites</Title>
+    <Title>Favourites ({rooms.length})</Title>
     <SV
       showsVerticalScrollIndicator={false}
       contentContainerStyle={{ paddingBottom: 50 }}
@@ -33,6 +33,7 @@ export default ({ rooms }) => (
             id={room.id}
             isFav={room.is_fav}
             isSuperHost={room.user.superhost}
+            roomObj={room}
           />
         ))
       ) : (
