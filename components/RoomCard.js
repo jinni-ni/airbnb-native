@@ -118,7 +118,7 @@ RoomCard.propTypes = {
   isSuperHost: Pt.bool.isRequired,
   name: Pt.string.isRequired,
   price: Pt.number.isRequired,
-  roomObj: Pt.objectOf.isRequired,
+  roomObj: Pt.object.isRequired,
 };
 
 export default RoomCard;
