@@ -6,6 +6,7 @@ import Explore from "../screens/Main/Explore";
 import Saved from "../screens/Main/Saved";
 import MapScreen from "../screens/Main/Map";
 import Profile from "../screens/Main/Profile";
+import Search from "../screens/Main/Search";
 import Room from "../screens/Room";
 import colors from "../colors";
 import utils from "../utils";
@@ -85,6 +86,13 @@ export default () => (
             style={StyleSheet.absoluteFill}
           />
         ),
+      }}
+    />
+    <MainNavigator.Screen
+      name="Search"
+      component={Search}
+      options={{
+        headerShown: false,
       }}
     />
   </MainNavigator.Navigator>

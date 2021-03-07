@@ -56,6 +56,7 @@ const MapContainer = styled.View`
   width: 100%;
   height: 200px;
   margin-top: 30px;
+  margin-bottom: 30px;
 `;
 
 function formatQtt(number, name) {
@@ -117,8 +118,9 @@ export default ({ route: { params }, navigation }) => {
                 latitude: parseFloat(params.lat),
                 longitude: parseFloat(params.lng),
               },
-              altitude: 10 * 300,
-              pitch: 50,
+              altitude: 10 * 200,
+              pitch: 25,
+              zoom: 10,
               heading: 0,
             }}
             zoomEnabled={false}
