@@ -5,9 +5,9 @@ import {
   ScrollView,
   TouchableWithoutFeedback,
 } from "react-native";
-import RoomCard from "../../../components/RoomCard";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { useNavigation } from "@react-navigation/native";
+import RoomCard from "../../../components/RoomCard";
 
 const Container = styled.View`
   flex: 1;
